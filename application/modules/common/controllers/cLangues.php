@@ -11,17 +11,17 @@ class cLangues extends MX_Controller {
         $this->load->view('common/template/wTemplate');
     }
 
-    public function FSxCLGloadwLangues() {
+    public function FSxCLAGloadwLangues() {
         if($this->session->userdata('lang')==NULL){
 			$lang = "th";
 			$this->session->set_userdata('lang',$lang);
 		}else{
 			$lang = $this->session->userdata('lang');
-		}
+        }
         $this->load->view('common/wLangues');  	
     }
 
-    public function FSxCLGchangeLangues($lang)
+    public function FSxCLAGchangeLangues($lang)
 	{
 		$this->session->set_userdata('lang',$lang);
 		$this->load->view('common/wLangues');

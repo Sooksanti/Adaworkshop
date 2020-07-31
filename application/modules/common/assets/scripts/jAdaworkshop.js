@@ -1,140 +1,130 @@
-function JSxLGloadwLangues() {
+function JSxMNULoadwLangues() {
     $.ajax({
         url: 'masShowLangues',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
-function JSxIMGuploadimg() {
+function JSxMNUUploadimg() {
     $.ajax({
         url: 'masShowupimgpage',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
-function JSxDTBLoadwTable() {
+function JSxMNULoadwTable() {
     $.ajax({
         url: 'masShowDatatables',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
-function JSxCSTLoadwCrud() {
+function JSxMNULoadwInsertUpdateDelete() {
     $.ajax({
-        url: 'masShowCrudPage',
+        url: 'masShowInsertUpdateDeletePage',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
 
-function JSxDPLoadwDatepicker() {
+function JSxMNULoadwDatepicker() {
     $.ajax({
         url: 'common/cDatepicker/index',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
-function JSxCSSLoadwCss() {
+function JSxMNULoadwCss() {
     $.ajax({
         url: 'common/cCss/index',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
-function JSxAPICovid() {
+function JSxMNUCovid() {
     $.ajax({
         url: 'common/cCovidApi/index',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
-function JSxPGCondition() {
+function JSxMNUCondition() {
     $.ajax({
         url: 'common/cCondition/index',
         async: true,
         success: function(data) {
-            $('#odvContent').html(data);
+            $('#odvMNUContent').html(data);
         }
 
     });
 }
 
 $(document).ready(function() {
-    JSxLGloadwLangues();
+    JSxMNULoadwLangues();
 });
 
-function JSxLGchangeLangues(lang) {
-    $.ajax({
-        type: 'post',
-        url: 'common/cLangues/FSxCLGchangeLangues/' + lang,
-        async: true,
-        success: function(data) {
-            $('#odvContent').html(data);
-        }
 
-    });
-}
 
-$("#oahLangues").click(function() {
-    JSxLGloadwLangues()
+$("#oahMNULangues").click(function() {
+    JSxMNULoadwLangues()
 });
 
-$("#oahUploadimages").click(function() {
-    JSxIMGuploadimg()
+$("#oahMNUUploadimages").click(function() {
+    JSxMNUUploadimg()
 });
 
-$("#oahDatatable").click(function() {
-    JSxDTBLoadwTable()
+$("#oahMNUDatatable").click(function() {
+    JSxMNULoadwTable()
 });
 
-$("#oahCrud").click(function() {
-    JSxCSTLoadwCrud()
+$("#oahMNUInsertUpdateDelete").click(function() {
+    JSxMNULoadwInsertUpdateDelete()
 });
 
-$("#oahDatepicker").click(function() {
-    JSxDPLoadwDatepicker()
+$("#oahMNUDatepicker").click(function() {
+    JSxMNULoadwDatepicker()
 });
 
-$("#oahCss").click(function() {
-    JSxCSSLoadwCss()
+$("#oahMNUCss").click(function() {
+    JSxMNULoadwCss()
 });
 
-$("#oahCovidApi").click(function() {
-    JSxAPICovid()
+$("#oahMNUCovidApi").click(function() {
+    JSxMNUCovid()
 });
 
-$("#oahCondition").click(function() {
-    JSxPGCondition()
+$("#oahMNUCondition").click(function() {
+    JSxMNUCondition()
 });
 
-$("#oahKoolReport").click(function() {
+$("#oahMNUKoolReport").click(function() {
     window.open('common/reports/cReport/index', '_blank');
 });

@@ -7,11 +7,11 @@
     <div class="card-body">
         <div class="form-group">
             <label>ตัวเลข</label>
-            <input type="number" class="form-control" placeholder="กรอกตัวเลข" min="0" max="12" id="onbInputmonth">
+            <input type="number" class="form-control" placeholder="กรอกตัวเลข" min="0" max="12" id="onbCDTInputmonth">
         </div>
         <div class="form-group">
             <label>ผลลัพธ์</label>
-            <input type="text" class="form-control" placeholder="ผลลัพธ์" disabled id="otaResultmonth">
+            <input type="text" class="form-control" placeholder="ผลลัพธ์" disabled id="otaCDTResultmonth">
         </div>
     </div>
     <!-- /.card-body -->
@@ -23,54 +23,54 @@
 
 <script>
 $("#obtShowResult").click(function() {
-    var nInputmonth = $('#onbInputmonth').val();
+    var nInputmonth = $('#onbCDTInputmonth').val();
     if(nInputmonth == 1)
     {
-        $('#otaResultmonth').val('January');
+        $('#otaCDTResultmonth').val('January');
     }
     else if(nInputmonth == 2)
     {
-        $('#otaResultmonth').val('February');
+        $('#otaCDTResultmonth').val('February');
     }
     else if(nInputmonth == 3)
     {
-        $('#otaResultmonth').val('March');
+        $('#otaCDTResultmonth').val('March');
     }
     else if(nInputmonth == 4)
     {
-        $('#otaResultmonth').val('April');
+        $('#otaCDTResultmonth').val('April');
     }
     else if(nInputmonth == 5)
     {
-        $('#otaResultmonth').val('May');
+        $('#otaCDTResultmonth').val('May');
     }
     else if(nInputmonth == 6)
     {
-        $('#otaResultmonth').val('June');
+        $('#otaCDTResultmonth').val('June');
     }
     else if(nInputmonth == 7)
     {
-        $('#otaResultmonth').val('July');
+        $('#otaCDTResultmonth').val('July');
     }
     else if(nInputmonth == 8)
     {
-        $('#otaResultmonth').val('August');
+        $('#otaCDTResultmonth').val('August');
     }
     else if(nInputmonth == 9)
     {
-        $('#otaResultmonth').val('September');
+        $('#otaCDTResultmonth').val('September');
     }
     else if(nInputmonth == 10)
     {
-        $('#otaResultmonth').val('October');
+        $('#otaCDTResultmonth').val('October');
     }
     else if(nInputmonth == 11)
     {
-        $('#otaResultmonth').val('November');
+        $('#otaCDTResultmonth').val('November');
     }
     else if(nInputmonth == 12)
     {
-        $('#otaResultmonth').val('December');
+        $('#otaCDTResultmonth').val('December');
     }
 });
 </script>

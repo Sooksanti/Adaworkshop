@@ -10,13 +10,15 @@ class cUploadimg extends MX_Controller {
         $this->load->view('common/wUploadimage');
     }
 
-    public function FCNxCIMGuploadimg(){
-        if(isset($_FILES["oflImage"]["name"]))  
+    public function FCNxCIMGUploadimg(){
+        if(isset($_FILES["oflIMGUpload"]["name"]))  
         {  
              $config['upload_path'] = './upload/';  
-             $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+             $config['allowed_types'] = 'jpg|jpeg|png|gif';
+             $numrand = (mt_rand());
+             $config['file_name']  =$numrand;
              $this->load->library('upload', $config);  
-             if(!$this->upload->do_upload('oflImage'))  
+             if(!$this->upload->do_upload('oflIMGUpload'))  
              {  
                   echo $this->upload->display_errors();  
              }  

@@ -6,11 +6,11 @@
     <div class="card-body">
         <div class="form-group">
             <label>Select Date:</label>
-            <input class="form-control" type="text" id="tbDate" />
+            <input class="form-control" type="text" id="oetDPKDate" />
         </div>
         <div class="form-group">
             <label>Choose a Format:</label>
-            <select class="form-control" id="dateOptions" name="date">
+            <select class="form-control" id="ocmDPKDateOptions">
                 <option value=""></option>
                 <option value="'Found the lost documents on' d 'of' MM 'in the year' yy">'Found
                     the lost
@@ -27,9 +27,9 @@
 </div>
     <script>
     $(document).ready(function() {
-        $('input[id$=tbDate]').datepicker({});
-        $("#dateOptions").change(function() {
-            $("#tbDate").datepicker("option", "dateFormat", $(this).val());
+        $('input[id$=oetDPKDate]').datepicker({});
+        $("#ocmDPKDateOptions").change(function() {
+            $("#oetDPKDate").datepicker("option", "dateFormat", $(this).val());
         });
     });
     </script>

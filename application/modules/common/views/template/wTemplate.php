@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="#" class="brand-link">
                 <img src="application/modules/common/assets/images/AdaLogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Adaworkshop</span>
@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" id="oahLangues" class="nav-link">
+                            <a href="#" id="oahMNULangues" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Langues
@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" id="oahUploadimages" class="nav-link">
+                            <a href="#" id="oahMNUUploadimages" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Uploadimages
@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahDatatable" class="nav-link">
+                            <a href="#" id="oahMNUDatatable" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Row-manager
@@ -86,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahCrud" class="nav-link">
+                            <a href="#" id="oahMNUInsertUpdateDelete" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     CRUD
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahDatepicker" class="nav-link">
+                            <a href="#" id="oahMNUDatepicker" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Date Picker
@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahCss" class="nav-link">
+                            <a href="#" id="oahMNUCss" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     CSS
@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahCovidApi" class="nav-link">
+                            <a href="#" id="oahMNUCovidApi" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Covid Api
@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahCondition" class="nav-link">
+                            <a href="#" id="oahMNUCondition" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Condition
@@ -131,7 +131,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" id="oahKoolReport" class="nav-link">
+                            <a href="#" id="oahMNUKoolReport" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>
                                     Kool Report
@@ -151,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content-header">
                 <div class="container-fluid">
 
-                    <div id="odvContent">
+                    <div id="odvMNUContent">
 
                     </div>
                 </div>

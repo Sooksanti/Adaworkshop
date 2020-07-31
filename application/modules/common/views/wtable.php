@@ -6,7 +6,7 @@
     <div class="card-body">
         <table id="otbDatatablestest" class="table table-bordered table-striped">
             <thead>
-                <tr>
+                <tr id="otrTBLTest">
                     <th>Name</th>
                     <th>Position</th>
                     <th>Office</th>
@@ -31,13 +31,6 @@
     <script>
     $(function() {
         $('#otbDatatablestest').DataTable({
-            "paging": true,
-            "lengthChange": true,
-            "searching": true,
-            "ordering": true,
-            "info": true,
-            "autoWidth": true,
-            "responsive": true,
             "ajax": "data.txt",
             "columns": [{
                     "data": "name"
