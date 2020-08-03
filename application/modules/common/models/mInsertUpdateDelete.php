@@ -7,31 +7,27 @@ class mInsertUpdateDelete extends MX_Controller {
     }
 
     public function FSxMCTYSelectcountry(){
-        $data=$this->db->get('TCNMcountry');
+        $data=$this->db->query("select * from TCNMcountry");
         return $data->result();
     }
 
     public function FSxMCTYSearchcountry(){
         $data = $this->input->post('country');
-        $result=$this->db->or_like('FTCountryName', $data)->or_like('FTCountryCode', $data)->get('TCNMcountry');
+        $result=$this->db->query("select * from TCNMcountry where FTCountryName like '%$data%' or FTCountryCode like '%$data%'");
         return $result->result();
     }
     
     public function FSxMCTYInsertcountry(){
-        $data = array(
-                'FTCountryCode'  => $this->input->post('idcountry'), 
-                'FTCountryName'  => $this->input->post('namecountry')
-            );
-            $this->db->select('FTCountryName');
-            $this->db->where('FTCountryName',$this->input->post('namecountry'));
-            $query = $this->db->get('TCNMcountry');
+            $FTCountryCode =$this->input->post('idcountry');
+            $FTCountryName= $this->input->post('namecountry');
+            $query = $this->db->query("select * from TCNMcountry where FTCountryName like '$FTCountryName'");
             $num = $query->num_rows();
             if($num > 0)
             {
                 return false;
             }else{
                 $this->db->db_debug = false;
-                $result=$this->db->insert('TCNMcountry',$data);
+                $result=$this->db->query("INSERT INTO TCNMcountry values('$FTCountryCode', '$FTCountryName')");
                 return $result;
             }
 
@@ -42,19 +38,14 @@ class mInsertUpdateDelete extends MX_Controller {
         $idcountry=$this->input->post('idcountry');
         $namecountry=$this->input->post('namecountry');
 
-        $this->db->select('FTCountryName');
-        $this->db->where('FTCountryName',$namecountry)->where('FTCountryCode !=',$id);
-        $query = $this->db->get('TCNMcountry');
+        $query = $this->db->query("select * from TCNMcountry where FTCountryName like '$namecountry' and FTCountryCode !='$id'");
         $num = $query->num_rows();
         if($num > 0)
         {
             return false;
         }else{
             $this->db->db_debug = false;
-            $this->db->set('FTCountryCode', $idcountry);
-            $this->db->set('FTCountryName', $namecountry);
-            $this->db->where('FTCountryCode', $id);
-            $result=$this->db->update('TCNMcountry');
+            $result=$this->db->query("UPDATE TCNMcountry SET FTCountryCode = '$idcountry', FTCountryName = '$namecountry' WHERE FTCountryCode = '$id';");
             return $result;
         }
     }
