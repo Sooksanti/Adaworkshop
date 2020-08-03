@@ -87,6 +87,17 @@ function JSxMNUCondition() {
     });
 }
 
+function JSxMNUAll() {
+    $.ajax({
+        url: 'common/cAll/index',
+        async: true,
+        success: function(data) {
+            $('#odvMNUContent').html(data);
+        }
+
+    });
+}
+
 $(document).ready(function() {
     JSxMNULoadwLangues();
 });
@@ -127,4 +138,8 @@ $("#oahMNUCondition").click(function() {
 
 $("#oahMNUKoolReport").click(function() {
     window.open('common/reports/cReport/index', '_blank');
+});
+
+$("#oahMNUAll").click(function() {
+    JSxMNUAll()
 });

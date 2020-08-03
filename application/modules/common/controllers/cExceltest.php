@@ -9,6 +9,7 @@ use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
 use Box\Spout\Common\Entity\Style\CellAlignment;
 use Box\Spout\Common\Entity\Style\Border;
 use Box\Spout\Writer\Common\Creator\Style\BorderBuilder;
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 
 class cExceltest extends MX_Controller {
     public function __construct() {
@@ -40,8 +41,6 @@ class cExceltest extends MX_Controller {
                 ->build();
 
         $fileName = 'test.xlsx';
-    
-        // $writer->openToFile($filePath); // write data to a file or to a PHP stream
         $writer->openToBrowser($fileName); // stream data directly to the browser
         $cells = [
             WriterEntityFactory::createCell('ID',$style),
@@ -68,7 +67,47 @@ class cExceltest extends MX_Controller {
         $writer->addRows($multipleRows); 
         }
         $writer->close();
-
 	}
 
+    public function read()
+    {	        
+        try {
+        
+            //Lokasi file excel       
+            $file_path = "C:/Users/Sooksanti/Desktop/New folder/test.xlsx";                     
+            $reader = ReaderEntityFactory::createXLSXReader();; //set Type file xlsx
+            $reader->open($file_path); //open the file          
+        
+            $i = 0; 
+                                
+            /**                  
+             * Sheets Iterator. Kali aja multiple sheets                  
+             **/
+                       
+            foreach ($reader->getSheetIterator() as $sheet) {
+                //Rows iterator                
+                foreach ($sheet->getRowIterator() as $row) {
+                    $value = $row->toArray();
+                    
+                    $name = $value[1];
+                    if ($name != 'Country') {
+                        print_r($value); 
+                    }
+
+
+            $i++;
+        }
+            }         
+            $reader->close();
+        
+    } catch (Exception $e) {
+
+        echo $e->getMessage();
+        exit;   
+    }
+
+
+    }
 }
+
+

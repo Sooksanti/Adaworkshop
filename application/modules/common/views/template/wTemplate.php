@@ -139,6 +139,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="#" id="oahMNUAll" class="nav-link">
+                                <i class='fas fa-edit'></i>
+                                <p>
+                                    ALL
+                                </p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
