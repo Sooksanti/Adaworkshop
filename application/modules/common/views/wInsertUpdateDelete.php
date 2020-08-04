@@ -45,6 +45,7 @@
         </form>
         <table class="table table-bordered mt-3" id="otbCTYCountry">
         </table>
+        <button type="button" class="btn btn-success mt-3" id="oadCTYExportexcel" onClick="window.location='<?php echo site_url('common/cExceltest/test')?>';">Export Excel</button>
     </div>
 </div>
 <!-- /.card-body -->

@@ -12,10 +12,6 @@ use Box\Spout\Writer\Common\Creator\Style\BorderBuilder;
 use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 
 class cExceltest extends MX_Controller {
-    public function __construct() {
-        parent::__construct ();
-        $this->load->model('mInsertUpdateDelete');
-    }
 	public function test()
 	{	        
         $writer = WriterEntityFactory::createXLSXWriter();
@@ -36,7 +32,7 @@ class cExceltest extends MX_Controller {
                 ->setFontColor(Color::BLACK)
                 ->setShouldWrapText()
                 ->setBorder($border)
-                ->setCellAlignment(CellAlignment::RIGHT)
+                ->setCellAlignment(CellAlignment::CENTER)
                 ->setBackgroundColor(Color::YELLOW)
                 ->build();
 
@@ -51,15 +47,14 @@ class cExceltest extends MX_Controller {
         $singleRow = WriterEntityFactory::createRow($cells);
         $writer->addRow($singleRow);
 
-
-        $data=$this->mInsertUpdateDelete->FSxMCTYSelectcountry();
+        $query = $this->db->query("select * from TCNMcountry");
+        $data = $query->result();
         foreach ($data as $row)
         {         
         $Row = [
             WriterEntityFactory::createCell($row->FTCountryCode),
             WriterEntityFactory::createCell($row->FTCountryName),
         ];
-        $RowMulti = WriterEntityFactory::createRow($Row);
         /** add multiple rows at a time */
         $multipleRows = [
             WriterEntityFactory::createRow($Row),

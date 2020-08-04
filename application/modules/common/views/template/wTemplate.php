@@ -122,6 +122,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
+                            <a href="#" id="oahMNUObjrelation" class="nav-link">
+                                <i class='fas fa-edit'></i>
+                                <p>
+                                    Object Relations
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="#" id="oahMNUCondition" class="nav-link">
                                 <i class='fas fa-edit'></i>
                                 <p>

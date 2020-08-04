@@ -98,6 +98,17 @@ function JSxMNUAll() {
     });
 }
 
+function JSxMNUObjrelations() {
+    $.ajax({
+        url: 'common/cObjectrelation/index',
+        async: true,
+        success: function(data) {
+            $('#odvMNUContent').html(data);
+        }
+
+    });
+}
+
 $(document).ready(function() {
     JSxMNULoadwLangues();
 });
@@ -130,6 +141,10 @@ $("#oahMNUCss").click(function() {
 
 $("#oahMNUCovidApi").click(function() {
     JSxMNUCovid()
+});
+
+$("#oahMNUObjrelation").click(function() {
+    JSxMNUObjrelations()
 });
 
 $("#oahMNUCondition").click(function() {

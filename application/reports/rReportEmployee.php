@@ -12,9 +12,9 @@ class rReportEmployee extends \koolreport\KoolReport
             ),
             "dataSources"=>array(
                 "sqlserver"=>array(
-                    'host' => 'ADA091-WAT',
-                    'username' => 'sa',
-                    'password' => '@Adasoft',
+                    'host' => 'ADA091-WAT\SQLEXPRESS',
+                    'username' => '',
+                    'password' => '',
                     'dbname' => 'AdaWorkshop1.MDB',
                     'charset' => 'utf8',  
                     'class' => "\koolreport\datasources\SQLSRVDataSource"  
