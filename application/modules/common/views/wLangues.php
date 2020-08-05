@@ -36,30 +36,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="card-footer">
             <button type="submit" class="btn btn-primary" id="osmLAGTest">Submit</button>
-            <button type="button" class="btn btn-success" id="osmLAGColorgreen">Change Color green</button>
-            <button type="button" class="btn btn-danger" id="osmLAGColorred">Change Color red</button>
         </div>
     </form>
 <script>
+
+    //Functionality: เปลี่ยน session ภาษา
+    //Parameters: lang รับมาจากฟังก์ชัน language
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: - 
 function JSxLAGchangeLangues(lang) {
     $.ajax({
         type: 'post',
         url: 'common/cLangues/FSxCLAGchangeLangues/' + lang,
         async: true,
-        success: function(data) {
-            $('#odvMNUContent').html(data);
+        success: function(tData) {
+            $('#odvMNUContent').html(tData);
         }
 
     });
 }
-
-$('#osmLAGColorgreen').click(function(){
-    ($('#osmLAGTest').removeClass('btn-primary btn-danger'))
-          $('#osmLAGTest').addClass('btn-success');
-});
-
-$('#osmLAGColorred').click(function(){
-    ($('#osmLAGTest').removeClass('btn-primary'))
-          $('#osmLAGTest').addClass('btn-danger');
-});
 </script>

@@ -6,12 +6,17 @@ class cCovidApi extends MX_Controller {
         parent::__construct ();
     }
 
+    //Functionality: เรียก api covid
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -
 	public function index() {
-        $url = 'http://covid19.th-stat.com/api/open/today';
-        $curl = curl_init($url);
-   
-       	curl_setopt_array($curl, array(
-		    CURLOPT_URL => $url,
+        $tUrl = 'http://covid19.th-stat.com/api/open/today';
+        $oCurl = curl_init($tUrl);
+       	curl_setopt_array($oCurl, array(
+		    CURLOPT_URL => $tUrl,
 		    CURLOPT_RETURNTRANSFER => true,
 		    CURLOPT_ENCODING => "",
 		    CURLOPT_TIMEOUT => 30,
@@ -21,16 +26,17 @@ class cCovidApi extends MX_Controller {
 		    ),
 		));
             
-        $data = curl_exec($curl);
-        $err = curl_error($curl);
+        $tData = curl_exec($oCurl);
+        $tErr = curl_error($oCurl);
 
-        $result['covid']= json_decode($data);
-        curl_close($curl);
+        $oResult = json_decode($tData);
+        curl_close($oCurl);
         
-        if ($err) {
-          echo "cURL Error #:" . $err;
+        if ($tErr) {
+          echo "cURL Error #:" . $tErr;
         } else {
-            $this->load->view('common/wCovidApi',$result);
+            $this->load->view('common/wCovidApi',$oResult);
         }
+
     }
 }

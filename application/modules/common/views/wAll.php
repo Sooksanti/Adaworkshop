@@ -57,20 +57,20 @@
 <canvas id="ocvALLTest" width="200" height="100" style="border:1px solid #000000;">
 </canvas>
 </div>
-<form id="">
+<form id="ofmALLTest">
     <div class="form-group">
-        <input type="number" class="form-control" id="">
+        <input type="number" class="form-control" id="onbALLTest">
     </div>
     <div class="form-group">
-        <input type="number" class="form-control" id="">
+        <input type="email" class="form-control" id="oemALLTest">
     </div>
     <div class="form-group">
-        <input type="number" class="form-control" id="">
+        <input type="file" class="form-control" id="oflALLTest">
     </div>
     <div class="form-group">
-        <input type="number" class="form-control" id="">
+        <input type="hidden" class="form-control" id="ohdALLTest">
     </div>
 </form>
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ioNng23DkIM?rel=0" allowfullscreen></iframe>
+  <iframe id="oifALLTest" class="embed-responsive-item" src="https://www.youtube.com/embed/ioNng23DkIM?rel=0" allowfullscreen></iframe>
 </div>

@@ -197,6 +197,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="application/modules/common/assets/js/dataTables.responsive.min.js"></script>
     <script src="application/modules/common/assets/js/responsive.bootstrap4.min.js"></script>
     <script src="application/modules/common/assets/js/jquery-ui.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        JSxMNULoadwLangues();
+    });
+
+    $("#oahMNULangues").click(function() {
+        JSxMNULoadwLangues()
+    });
+
+    $("#oahMNUUploadimages").click(function() {
+        JSxMNUUploadimg()
+    });
+
+    $("#oahMNUDatatable").click(function() {
+        JSxMNULoadwTable()
+    });
+
+    $("#oahMNUInsertUpdateDelete").click(function() {
+        JSxMNULoadwInsertUpdateDelete()
+    });
+
+    $("#oahMNUDatepicker").click(function() {
+        JSxMNULoadwDatepicker()
+    });
+
+    $("#oahMNUCss").click(function() {
+        JSxMNULoadwCss()
+    });
+
+    $("#oahMNUCovidApi").click(function() {
+        JSxMNUCovid()
+    });
+
+    $("#oahMNUObjrelation").click(function() {
+        JSxMNUObjrelations()
+    });
+
+    $("#oahMNUCondition").click(function() {
+        JSxMNUCondition()
+    });
+
+    $("#oahMNUKoolReport").click(function() {
+        window.open('common/reports/cReport/index', '_blank');
+    });
+
+    $("#oahMNUAll").click(function() {
+        JSxMNUAll()
+    });
+    </script>
 </body>
 
 </html>

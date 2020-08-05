@@ -57,69 +57,67 @@ function JSxCTYSelectcountry() {
         url: 'masListCountry',
         async: true,
         dataType: 'json',
-        success: function(data) {
-            var item_data = '';
-            item_data += '<thead class="thead-light">' +
+        success: function(oData) {
+            var tItem_data = '';
+            tItem_data += '<thead class="thead-light">' +
                 '<tr>' +
                 '<th scope="col">id</th>' +
                 '<th scope="col">ประเทศ</th>' +
                 '<th scope="col">Action</th>' +
                 '</tr>' +
                 '</thead>';
-            for (i = 0; i < data.length; i++) {
-                item_data += '<tr>' +
-                    '<td>' + data[i].FTCountryCode + '</td>' +
-                    '<td>' + data[i].FTCountryName + '</td>' +
+            for (i = 0; i < oData.length; i++) {
+                tItem_data += '<tr>' +
+                    '<td>' + oData[i].FTCountryCode + '</td>' +
+                    '<td>' + oData[i].FTCountryName + '</td>' +
                     '<td>' +
-                    '<button type="button" name="edit" data-id="' + data[i].FTCountryCode +
+                    '<button type="button" name="edit" data-id="' + oData[i].FTCountryCode +
                     '" class="edit btn btn-success btn-sm mr-3">Edit</button>' +
-                    '<button type="button" data-id="' + data[i].FTCountryCode +
+                    '<button type="button" data-id="' + oData[i].FTCountryCode +
                     '"class="delete btn btn-danger btn-sm">Delete</button>' +
                     '</td>' +
                     '</tr>';
             }
-            $('#otbCTYCountry').html(item_data);
+            $('#otbCTYCountry').html(tItem_data);
         }
 
     });
 }
-$(document).ready(function(data) {
+$(document).ready(function() {
     JSxCTYSelectcountry()
 
     $("#oetCTYSearch").keyup(function() {
-        var country = $(this).val();
+        var tCountry = $(this).val();
         $.ajax({
             method: "post",
             url: "<?php echo site_url('common/cInsertUpdateDelete/FSxCCTYSearchcountry')?>",
             data: {
-                country,
-                country
+                tCountry:tCountry
             },
             dataType: 'json',
-            success: function(data) {
-                var item_data = '';
-                item_data += '<thead class="thead-light">' +
+            success: function(oData) {
+                var tItem_data = '';
+                tItem_data += '<thead class="thead-light">' +
                     '<tr>' +
                     '<th scope="col">id</th>' +
                     '<th scope="col">ประเทศ</th>' +
                     '<th scope="col">Action</th>' +
                     '</tr>' +
                     '</thead>';
-                for (i = 0; i < data.length; i++) {
-                    no = i + 1;
-                    item_data += '<tr>' +
-                        '<td>' + data[i].FTCountryCode + '</td>' +
-                        '<td>' + data[i].FTCountryName + '</td>' +
+                for (i = 0; i < oData.length; i++) {
+                    tItem_data += '<tr>' +
+                        '<td>' + oData[i].FTCountryCode + '</td>' +
+                        '<td>' + oData[i].FTCountryName + '</td>' +
                         '<td>' +
-                        '<button type="button" name="edit" data-id="' + data[i]
+                        '<button type="button" name="edit" data-id="' + oData[i]
                         .FTCountryCode +
                         '" class="edit btn btn-success btn-sm mr-3">Edit</button>' +
-                        '<button type="button" data-id="' + data[i].FTCountryCode +
+                        '<button type="button" data-id="' + oData[i].FTCountryCode +
                         '"class="delete btn btn-danger btn-sm" id="getDeleteId">Delete</button>' +
                         '</td>' +
                         '</tr>';
                 }
-                $('#otbCTYCountry').html(item_data);
+                $('#otbCTYCountry').html(tItem_data);
             }
         });
     });
@@ -133,22 +131,23 @@ $(document).ready(function(data) {
     });
 
     $(document).on('click', '#oadCTYSavecountry', function() {
-        var idcountry = $('#oetCTYIdCountry').val();
-        var namecountry = $('#oetCTYNameCountry').val();
-        if (idcountry != "" || namecountry != "") {
+        var tIdcountry = $('#oetCTYIdCountry').val();
+        var tNamecountry = $('#oetCTYNameCountry').val();
+        if (tIdcountry != "" || tNamecountry != "") {
             $.ajax({
                 url: "<?php echo site_url('common/cInsertUpdateDelete/FSxCCTYInsertcountry')?>",
                 type: "POST",
                 data: {
-                    idcountry: idcountry,
-                    namecountry: namecountry
+                    tIdcountry: tIdcountry,
+                    tNamecountry: tNamecountry
                 },
+                dataType: 'json',
                 cache: false,
-                success: function(data) {
-                    if (data != "true") {
-                        alert(data);
+                success: function(oData) {
+                    if (oData.nReturnCode != 1) {
+                        alert(oData.tReturnMsg);
                     } else {
-                        alert("เพิ่มข้อมูลสำเร็จ");
+                        alert(oData.tReturnMsg);
                         JSxCTYSelectcountry()
                         $('#oetCTYIdCountry').val('');
                         $('#oetCTYNameCountry').val('');
@@ -164,35 +163,36 @@ $(document).ready(function(data) {
     $(document).on('click', '.edit', function() {
         $("h5").first().text('แก้ไขข้อมูล');
         $("#oadCTYSavecountry").prop('id', 'oadCTYEditdcountry');
-        $tr = $(this).closest('tr');
-        var data = $tr.children("td").map(function() {
+        $oTr = $(this).closest('tr');
+        var aData = $oTr.children("td").map(function() {
             return $(this).text();
         }).get();
-        var id = $(this).data('id');
-        $('#oadCTYEditdcountry').attr('data-id', id);
-        $('#oetCTYIdCountry').val(data[0]);
-        $('#oetCTYNameCountry').val(data[1]);
+        var tId = $(this).data('id');
+        $('#oadCTYEditdcountry').attr('data-id', tId);
+        $('#oetCTYIdCountry').val(aData[0]);
+        $('#oetCTYNameCountry').val(aData[1]);
         $('#odvCTYCountry').modal('show');
     });
 
     $(document).on('click', '#oadCTYEditdcountry', function() {
-        var id = $(this).data('id');
-        var idcountry = $('#oetCTYIdCountry').val();
-        var namecountry = $('#oetCTYNameCountry').val();
-        if (idcountry != "" || namecountry != "") {
+        var tId = $(this).data('id');
+        var tIdcountry = $('#oetCTYIdCountry').val();
+        var tNamecountry = $('#oetCTYNameCountry').val();
+        if (tIdcountry != "" || tNamecountry != "") {
             $.ajax({
                 type: "post",
                 url: "<?php echo site_url('common/cInsertUpdateDelete/FSxCCTYUpdatecountry')?>",
                 data: {
-                    id:id,
-                    idcountry: idcountry,
-                    namecountry: namecountry
+                    tId:tId,
+                    tIdcountry: tIdcountry,
+                    tNamecountry: tNamecountry
                 },
-                success: function(data) {
-                    if (data != "true") {
-                        alert(data);
+                dataType: 'json',
+                success: function(oData) {
+                    if (oData.nReturnCode != 1) {
+                        alert(oData.tReturnMsg);
                     } else {
-                        alert("แก้ไขมูลสำเร็จ");
+                        alert(oData.tReturnMsg);
                         JSxCTYSelectcountry()
                         $('#oetCTYIdCountry').val('');
                         $('#oetCTYNameCountry').val('');
@@ -206,22 +206,22 @@ $(document).ready(function(data) {
     });
 
     $(document).on('click', '.delete', function(){
-        $tr = $(this).closest('tr');
-        var data = $tr.children("td").map(function(){
+        $oTr = $(this).closest('tr');
+        var aData = $oTr.children("td").map(function(){
             return $(this).text();
         }).get();
-        var idcountry = $(this).data('id');
-        var namecountry = data[1];
-        var r = confirm("คุณต้องการลบ"+namecountry+" หรือไม่");
-        if (r == true) {
+        var tIdcountry = $(this).data('id');
+        var tNamecountry = aData[1];
+        var bConfirm = confirm("คุณต้องการลบ "+tNamecountry+" หรือไม่");
+        if (bConfirm == true) {
             $.ajax({
                     method: "post",
                     url: "<?php echo site_url('common/cInsertUpdateDelete/FSxCCTYDeletecountry')?>",
                     data: {
-                        idcountry: idcountry,
+                        tIdcountry: tIdcountry,
                     },
                     success: function(result){
-                    alert('ลบ '+namecountry+' สำเร็จ')
+                    alert('ลบ '+tNamecountry+' สำเร็จ')
                     JSxCTYSelectcountry()
                     }            
                 });

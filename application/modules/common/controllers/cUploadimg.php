@@ -10,13 +10,19 @@ class cUploadimg extends MX_Controller {
         $this->load->view('common/wUploadimage');
     }
 
+     //Functionality: upload รูป
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -   
     public function FCNxCIMGUploadimg(){
         if(isset($_FILES["oflIMGUpload"]["name"]))  
         {  
              $config['upload_path'] = './upload/';  
              $config['allowed_types'] = 'jpg|jpeg|png|gif';
-             $numrand = (mt_rand());
-             $config['file_name']  =$numrand;
+             $nNumrand = (mt_rand());
+             $config['file_name']  =$nNumrand;
              $this->load->library('upload', $config);  
              if(!$this->upload->do_upload('oflIMGUpload'))  
              {  
@@ -24,8 +30,8 @@ class cUploadimg extends MX_Controller {
              }  
              else  
              {  
-                  $data = $this->upload->data();  
-                  echo '<img src="'.base_url().'upload/'.$data["file_name"].'" width="300" height="225" class="img-thumbnail" />';  
+                  $aData = $this->upload->data(); 
+                  echo '<img src="'.base_url().'upload/'.$aData["file_name"].'" width="300" height="225" class="img-thumbnail" />';  
              }  
         } 
    }

@@ -6,55 +6,104 @@ class mInsertUpdateDelete extends MX_Controller {
         parent::__construct ();
     }
 
-    public function FSxMCTYSelectcountry(){
-        $data=$this->db->query("select * from TCNMcountry");
-        return $data->result();
+    //Functionality: select ข้อมูลทั้งหมดจากตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : aData ข้อมูลที่ได้จากการ select ข้อมูลจากตาราง TCNMcountry
+    //Return Type: array
+    public function FSoMCTYSelectcountry(){
+        $tQuery = "select * from TCNMcountry";
+        $aData=$this->db->query($tQuery)->result();
+        return $aData;
     }
 
-    public function FSxMCTYSearchcountry(){
-        $data = $this->input->post('country');
-        $result=$this->db->query("select * from TCNMcountry where FTCountryName like '%$data%' or FTCountryCode like '%$data%'");
-        return $result->result();
+    //Functionality: ค้นหาข้อมูลจากตาราง TCNMcountry
+    //Parameters:  ptInputcountrysearch รับข้อมูลมาจาก controller type array
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : aResult ข้อมูลที่ได้จากการค้นหาข้อมูลจากตาราง TCNMcountry
+    //Return Type: array
+    public function FSoMCTYSearchcountry($ptInputcountrysearch){
+        $tQuery="select * from TCNMcountry 
+                 where FTCountryName like '%$ptInputcountrysearch%' 
+                 or FTCountryCode like '%$ptInputcountrysearch%'";
+        $aResult=$this->db->query($tQuery)->result();
+        return  $aResult;
     }
     
-    public function FSxMCTYInsertcountry(){
-            $FTCountryCode =$this->input->post('idcountry');
-            $FTCountryName= $this->input->post('namecountry');
-            $query = $this->db->query("select * from TCNMcountry where FTCountryName like '$FTCountryName'");
-            $num = $query->num_rows();
-            if($num > 0)
+    //Functionality: insert ข้อมูลเข้าตาราง TCNMcountry
+    //Parameters:  aInputcountry รับข้อมูลมาจาก controller type POST
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : status
+    //Return Type: array
+    public function FSaMCTYInsertcountry($aInputcountry){
+            $tQuery ="select * from TCNMcountry 
+                    where FTCountryName like '".$aInputcountry['FTCountryName']."' or FTCountryName like '".$aInputcountry['FTCountryCode']."'";
+
+            $oResult = $this->db->query($tQuery);
+            $nNumrows = $aResult->num_rows();
+            if($nNumrows > 0)
             {
-                return false;
+                $aDataReturn = array(
+                    'nReturnCode'   =>  99,
+                    'tReturnMsg'    => 'Duplicate',
+                );
             }else{
-                $this->db->db_debug = false;
-                $result=$this->db->query("INSERT INTO TCNMcountry values('$FTCountryCode', '$FTCountryName')");
-                return $result;
+                $this->db->insert('TCNMcountry',$aInputcountry);
+                $aDataReturn = array(
+                    'nReturnCode'   =>  1,
+                    'tReturnMsg'    => 'Insert Success',
+                );
             }
-
+            return $aDataReturn;
     }
 
-    public function FSxMCTYUpdatecountry(){
-        $id =$this->input->post('id');
-        $idcountry=$this->input->post('idcountry');
-        $namecountry=$this->input->post('namecountry');
+    //Functionality: updateข้อมูลเข้าตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : status
+    //Return Type: array
+    public function FSaMCTYUpdatecountry(){
+        $tId =$this->input->post('tId');
+        $tIdcountry=$this->input->post('tIdcountry');
+        $tNamecountry=$this->input->post('tNamecountry');
 
-        $query = $this->db->query("select * from TCNMcountry where FTCountryName like '$namecountry' and FTCountryCode !='$id'");
-        $num = $query->num_rows();
-        if($num > 0)
+        $tQuery="select * from TCNMcountry where FTCountryName like '$tNamecountry' and FTCountryCode !='$tId'";
+        $oResult = $this->db->query($tQuery);
+        $nNumrows = $oResult->num_rows();
+        if($nNumrows > 0)
         {
-            return false;
+            $aDataReturn = array(
+                'nReturnCode'   =>  99,
+                'tReturnMsg'    => 'Duplicate Code',
+            );
         }else{
-            $this->db->db_debug = false;
-            $result=$this->db->query("UPDATE TCNMcountry SET FTCountryCode = '$idcountry', FTCountryName = '$namecountry' WHERE FTCountryCode = '$id';");
-            return $result;
+            $tQuery = "UPDATE TCNMcountry SET FTCountryCode = '$tIdcountry', FTCountryName = '$tNamecountry' 
+                       WHERE FTCountryCode = '$tId';";
+
+            $this->db->query($tQuery);
+            $aDataReturn = array(
+                'nReturnCode'   =>  1,
+                'tReturnMsg'    => 'Update Success',
+            );
         }
+        return $aDataReturn;
     }
 
-    public function FSxMCTYDeletecounty(){
-        $idcountry=$this->input->post('idcountry');
-        $this->db->where('FTCountryCode', $idcountry);
-        $result=$this->db->delete('TCNMcountry');
-        return $result;
+    //Functionality: ลบข้อมูลจากตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : boolean
+    //Return Type: boolean
+    public function FSoMCTYDeletecounty(){
+        $tIdcountry=$this->input->post('tIdcountry');
+        $this->db->where('FTCountryCode', $tIdcountry);
+        $bResult=$this->db->delete('TCNMcountry');
+        return $bResult;
     }
 }
 

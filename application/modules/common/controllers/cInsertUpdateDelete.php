@@ -11,52 +11,63 @@ class cInsertUpdateDelete extends MX_Controller {
         $this->load->view('common/wInsertUpdateDelete');
     }
 
+    //Functionality: แสดงข้อมูลทั้งหมดจากตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -
     public function FCNxCCTYList_contry(){
-		$data=$this->mInsertUpdateDelete->FSxMCTYSelectcountry();
-        echo json_encode($data);
+        $aData=$this->mInsertUpdateDelete->FSoMCTYSelectcountry();
+        echo json_encode($aData);
     }
     
+    //Functionality: ค้นหาข้อมูลจากคาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -    
     public function FSxCCTYSearchcountry(){
-		$search=  $this->input->post('country');
-        $data=$this->mInsertUpdateDelete->FSxMCTYSearchcountry($search);
-        echo json_encode($data);
+		$tInputcountrysearch=  $this->input->post('tCountry');
+        $aData=$this->mInsertUpdateDelete->FSoMCTYSearchcountry($tInputcountrysearch);
+        echo json_encode($aData);
     }
     
+    //Functionality: insert ข้อมูลเข้าตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -
     public function FSxCCTYInsertcountry(){
-        $data=$this->mInsertUpdateDelete->FSxMCTYInsertcountry();
-        $result = json_encode($data);
-        if($result == "true")
-        {
-            echo json_encode($data);
-        }else if($result == "false")
-        {
-            echo "ข้อมูลซ้ำ";
-        }else
-        {
-            echo json_encode($this->db->error());
-        }
-        
+        $aInputcountry = array(
+            'FTCountryCode' => $this->input->post('tIdcountry'),
+            'FTCountryName' => $this->input->post('tNamecountry'),
+        );
+        $aData = $this->mInsertUpdateDelete->FSaMCTYInsertcountry($aInputcountry);
+        echo json_encode($aData);
     }
-    
+
+    //Functionality: updateข้อมูลเข้าตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -
     public function FSxCCTYUpdatecountry(){
-        $data=$this->mInsertUpdateDelete->FSxMCTYUpdatecountry();
-        $result = json_encode($data);
-        if($result == "true")
-        {
-            echo json_encode($data);
-        }
-        else if($result == "false")
-        {
-            echo "ข้อมูลซ้ำ";
-        }
-        else
-        {
-            echo json_encode($this->db->error());
-        }
+        $aData=$this->mInsertUpdateDelete->FSaMCTYUpdatecountry();
+        echo json_encode($aData);
     }
     
+    //Functionality: ลบข้อมูลจากตาราง TCNMcountry
+    //Parameters:  -
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : status
+    //Return Type: array
     public function FSxCCTYDeletecountry(){
-        $data=$this->mInsertUpdateDelete->FSxMCTYDeletecounty();
-        echo json_encode($data);
+        $bData=$this->mInsertUpdateDelete->FSoMCTYDeletecounty();
+        echo json_encode($bData);
     }
 }

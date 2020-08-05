@@ -12,15 +12,15 @@ class cLangues extends MX_Controller {
     }
 
     public function FSxCLAGloadwLangues() {
-        if($this->session->userdata('lang')==NULL){
-			$lang = "th";
-			$this->session->set_userdata('lang',$lang);
-		}else{
-			$lang = $this->session->userdata('lang');
-        }
         $this->load->view('common/wLangues');  	
     }
 
+    //Functionality: เปลี่ยน session ภาษา
+    //Parameters: lang รับมาจากฟังก์ชัน JSxLAGchangeLangues type POST
+    //Creator: 5/08/2020 Sooksanti(Non)
+    //Last Modified : 
+    //Return : -
+    //Return Type: -    
     public function FSxCLAGchangeLangues($lang)
 	{
 		$this->session->set_userdata('lang',$lang);
