@@ -13,18 +13,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title"><?php echo language('common/main/main','tLang')?></h3>
+        <h3 class="card-title"><?php echo FCNaHCalllanguage('common/main/main','tLang')?></h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
     <form role="form">
         <div class="card-body">
             <div class="form-group">
-                <label id="olaLAGTest"><?php echo language('common/main/main','tEmail')?></label>
+                <label id="olaLAGTest"><?php echo FCNaHCalllanguage('common/main/main','tEmail')?></label>
                 <input type="email" class="form-control" placeholder="Enter email" id="oemLAGTest">
             </div>
             <div class="form-group">
-                <label><?php echo language('common/main/main','tPass')?></label>
+                <label><?php echo FCNaHCalllanguage('common/main/main','tPass')?></label>
                 <input type="password" class="form-control" placeholder="Password">
             </div>
             <div class="form-check">
@@ -38,23 +38,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button type="submit" class="btn btn-primary" id="osmLAGTest">Submit</button>
         </div>
     </form>
-<script>
-
+    <script>
     //Functionality: เปลี่ยน session ภาษา
     //Parameters: lang รับมาจากฟังก์ชัน language
     //Creator: 5/08/2020 Sooksanti(Non)
     //Last Modified : 
     //Return : -
     //Return Type: - 
-function JSxLAGchangeLangues(lang) {
-    $.ajax({
-        type: 'post',
-        url: 'common/cLangues/FSxCLAGchangeLangues/' + lang,
-        async: true,
-        success: function(tData) {
-            $('#odvMNUContent').html(tData);
-        }
+    function JSxLAGchangeLangues(lang) {
+        $.ajax({
+            type: 'post',
+            url: 'common/cLangues/FSxCLAGchangeLangues/' + lang,
+            async: true,
+            success: function(tData) {
+                $('#odvMNUContent').html(tData);
+            }
 
-    });
-}
-</script>
+        });
+    }
+    </script>

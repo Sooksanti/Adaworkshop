@@ -1,10 +1,11 @@
-<script src="<?php echo site_url('application/modules/common/assets/vendor/rabbitmq/stomp.js')?>"></script>
+<script src="<?php echo site_url('application/modules/common/assets/vendor/rabbitmq/stomp.js') ?>"></script>
 <h1>Rabbitmq Test</h1>
 <div id="chat"></div>
 <input type="text" id="msg">
 <button onclick="sendMsg()">Send</button>
 <script>
-var client = Stomp.client('ws://localhost:15674/ws');;
+
+var client = Stomp.client('ws://localhost:15674/ws');
 
 client.connect("guest", "guest", onConnect, onError, "Group_01");
 
@@ -17,6 +18,7 @@ function onConnect() {
         }
   });
 }
+
 function onError(e) {
         console.log("STOMP ERROR", e);
       }

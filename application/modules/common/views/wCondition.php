@@ -24,53 +24,90 @@
 <script>
 $("#obtShowResult").click(function() {
     var nInputmonth = $('#onbCDTInputmonth').val();
-    if(nInputmonth == 1)
-    {
-        $('#otaCDTResultmonth').val('January');
-    }
-    else if(nInputmonth == 2)
-    {
-        $('#otaCDTResultmonth').val('February');
-    }
-    else if(nInputmonth == 3)
-    {
-        $('#otaCDTResultmonth').val('March');
-    }
-    else if(nInputmonth == 4)
-    {
-        $('#otaCDTResultmonth').val('April');
-    }
-    else if(nInputmonth == 5)
-    {
-        $('#otaCDTResultmonth').val('May');
-    }
-    else if(nInputmonth == 6)
-    {
-        $('#otaCDTResultmonth').val('June');
-    }
-    else if(nInputmonth == 7)
-    {
-        $('#otaCDTResultmonth').val('July');
-    }
-    else if(nInputmonth == 8)
-    {
-        $('#otaCDTResultmonth').val('August');
-    }
-    else if(nInputmonth == 9)
-    {
-        $('#otaCDTResultmonth').val('September');
-    }
-    else if(nInputmonth == 10)
-    {
-        $('#otaCDTResultmonth').val('October');
-    }
-    else if(nInputmonth == 11)
-    {
-        $('#otaCDTResultmonth').val('November');
-    }
-    else if(nInputmonth == 12)
-    {
-        $('#otaCDTResultmonth').val('December');
+    // if(nInputmonth == 1)
+    // {
+    //     $('#otaCDTResultmonth').val('January');
+    // }
+    // else if(nInputmonth == 2)
+    // {
+    //     $('#otaCDTResultmonth').val('February');
+    // }
+    // else if(nInputmonth == 3)
+    // {
+    //     $('#otaCDTResultmonth').val('March');
+    // }
+    // else if(nInputmonth == 4)
+    // {
+    //     $('#otaCDTResultmonth').val('April');
+    // }
+    // else if(nInputmonth == 5)
+    // {
+    //     $('#otaCDTResultmonth').val('May');
+    // }
+    // else if(nInputmonth == 6)
+    // {
+    //     $('#otaCDTResultmonth').val('June');
+    // }
+    // else if(nInputmonth == 7)
+    // {
+    //     $('#otaCDTResultmonth').val('July');
+    // }
+    // else if(nInputmonth == 8)
+    // {
+    //     $('#otaCDTResultmonth').val('August');
+    // }
+    // else if(nInputmonth == 9)
+    // {
+    //     $('#otaCDTResultmonth').val('September');
+    // }
+    // else if(nInputmonth == 10)
+    // {
+    //     $('#otaCDTResultmonth').val('October');
+    // }
+    // else if(nInputmonth == 11)
+    // {
+    //     $('#otaCDTResultmonth').val('November');
+    // }
+    // else if(nInputmonth == 12)
+    // {
+    //     $('#otaCDTResultmonth').val('December');
+    switch (nInputmonth) {
+        case "1":
+            $('#otaCDTResultmonth').val('January');
+            break;
+        case "2":
+            $('#otaCDTResultmonth').val('February');
+            break;
+        case "3":
+            $('#otaCDTResultmonth').val('March');
+            break;
+        case "4":
+            $('#otaCDTResultmonth').val('April');
+            break;
+        case "5":
+            $('#otaCDTResultmonth').val('May');
+            break;
+        case "6":
+            $('#otaCDTResultmonth').val('June');
+            break;
+        case "7":
+            $('#otaCDTResultmonth').val('July');
+            break;
+        case "8":
+            $('#otaCDTResultmonth').val('August');
+            break;
+        case "9":
+            $('#otaCDTResultmonth').val('September');
+            break;
+        case "10":
+            $('#otaCDTResultmonth').val('October');
+            break;
+        case "11":
+            $('#otaCDTResultmonth').val('November');
+            break;
+        case "12":
+            $('#otaCDTResultmonth').val('December');
+
     }
 });
 </script>

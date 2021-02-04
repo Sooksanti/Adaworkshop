@@ -1,19 +1,19 @@
 <?php
-
-function language($file, $string, $sprintf = '') {
-    $obj = & get_instance();
-    if (@$_SESSION ['lang'] == '' || @$_SESSION ['lang'] == 'th') {
-        @$_SESSION ['lang'] = 'th';
-        $lang = 'th';
-    } else {
-        $lang = $_SESSION ['lang'];
-    }
-    $obj->lang->load($file, $lang);
-    $rs = sprintf($obj->lang->line($string), $sprintf);
-    
-    if ($rs) {
-        return $rs;
-    } else {
-        return $string;
-    }
+function FCNaHCalllanguage($tFile, $tString) {
+	
+	$obj = & get_instance();
+	if (@$_SESSION['lang'] == '' || @$_SESSION['lang'] == 'th') {
+		@$_SESSION['lang'] = 'th';
+		$lang = 'th';
+	} else {
+		$lang = $_SESSION['lang'];
+	}
+	$obj->lang->load($tFile,$lang);
+	$aRs = $obj->lang->line($tString);
+	print_r($aRs);
+	if ($aRs) {
+		return $aRs;
+	} else {
+		return $tString;
+	}
 }

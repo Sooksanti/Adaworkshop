@@ -55,7 +55,6 @@ function JSxCTYSelectcountry() {
     $.ajax({
         type: 'ajax',
         url: 'masListCountry',
-        async: true,
         dataType: 'json',
         success: function(oData) {
             var tItem_data = '';

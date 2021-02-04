@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="application/modules/common/assets/css/localcss/ada.main.css">
 </head>
 <body>
-    <div class="xWcard xWhovercard">
+    <div class="xWcard">
         <div class="xWcardheader">
         </div>
         <div class="xWavatar">

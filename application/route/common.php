@@ -6,4 +6,5 @@ $route['masShowupimgpage']      = 'common/cUploadimg/index';
 $route['masShowDatatables']     = 'common/cTable/index';
 $route['masShowInsertUpdateDeletePage']  = 'common/cInsertUpdateDelete/index';
 $route['masUploadimg']          = 'common/cUploadimg/FCNxCIMGUploadimg';
-$route['masListCountry']        = 'common/cInsertUpdateDelete/FCNxCCTYList_contry';
+$route['masListCountry']        = 'common/cInsertUpdateDelete/FSxCCTYList_contry';
+$route['wtest']                 = 'common/cTest/rabbittest';
